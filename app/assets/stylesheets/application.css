@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ 
+ .voter {
+     width: 600px;
+     margin: 100px auto 0 auto;
+ }
 .logo {
-    clip-path: inset(25% 0 19% 0 round 25% 0 25% 0);
+    /*clip-path: inset(25% 0 19% 0 round 25% 0 25% 0);*/
 }
