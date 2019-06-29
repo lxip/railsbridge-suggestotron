@@ -1,0 +1,31 @@
+<div class="voter">
+  
+<p id="notice"><%= notice %></p>
+
+<h1>Vote your ideas!</h1>
+
+<table class="topics">
+  <thead>
+    <tr>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><%= link_to topic.title, topic_path(topic) %></td>
+        <td><%= pluralize(topic.votes.count, 'vote') %></td>
+        <td><%= button_to 'Vote +1', upvote_topic_path(topic), method: :post %></td>
+        <td><%= button_to 'Vote -1', downvote_topic_path(topic), method: :post %></td>
+        <td><%= link_to 'Delete Topic', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="new-topic"><%= link_to 'New Topic', new_topic_path %></div>
+
+</div>
