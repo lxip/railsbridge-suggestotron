@@ -14,11 +14,11 @@
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
-        <td><%= link_to topic.title, topic_path(topic) %></td>
+        <td class="topic-title"><%= link_to topic.title, topic_path(topic) %></td>
         <td><%= pluralize(topic.votes.count, 'vote') %></td>
-        <td><%= button_to 'Vote +1', upvote_topic_path(topic), method: :post %></td>
-        <td><%= button_to 'Vote -1', downvote_topic_path(topic), method: :post %></td>
-        <td><%= link_to 'Delete Topic', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to '+1', upvote_topic_path(topic), method: :post, class: "vote-up" %></td>
+        <td><%= button_to '-1', downvote_topic_path(topic), method: :post, class: "vote-down" %></td>
+        <td class="topic-remove"><%= link_to 'Delete Topic', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
